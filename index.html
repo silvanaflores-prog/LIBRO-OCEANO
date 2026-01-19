@@ -6,16 +6,17 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./mantis.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-scene 
+      mindar-image="imageTargetSrc: ./mantis.mind; autoStart: true; uiLoading: yes; uiScanning: yes;" 
+      color-space="sRGB" 
+      renderer="colorManagement: true, physicallyCorrectLights" 
+      vr-mode-ui="enabled: false" 
+      device-orientation-permission-ui="enabled: false">
       
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model 
-          src="https://cdn.jsdelivr.net/gh/silvanaflores-prog/LIBRO-OCEANO@main/mantis.glb" 
-          position="0 0 0.1" 
-          scale="0.1 0.1 0.1" 
-          rotation="0 0 0">
-        </a-gltf-model>
+        <a-gltf-model src="mantis.glb" position="0 0 0.1" scale="0.1 0.1 0.1"></a-gltf-model>
       </a-entity>
     </a-scene>
   </body>
