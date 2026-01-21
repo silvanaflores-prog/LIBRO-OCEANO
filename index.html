@@ -1,45 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8">
+
+    <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- MindAR -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <title>Libro Océano - Mantis</title>
   </head>
-  <body>
-    <a-scene 
-      mindar-image="imageTargetSrc: ./mantis.mind;" 
-      renderer="colorManagement: true, exposure: 1.5" 
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      mindar-image="imageTargetSrc: ./mantis.mind; autoStart: true;"
+      color-space="sRGB"
+      renderer="colorManagement: true; physicallyCorrectLights: false;"
       vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false">
-      
+      device-orientation-permission-ui="enabled: false"
+    >
+
+      <!-- ASSETS -->
       <a-assets>
-        <a-asset-item id="mantisModel" src="./mantis.glb"></a-asset-item>
+        <a-asset-item
+          id="modeloMantis"
+          src="./mantis_web.glb"
+        ></a-asset-item>
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <!-- CÁMARA -->
+      <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+      ></a-camera>
 
+      <!-- LUCES -->
       <a-light type="ambient" intensity="1.2"></a-light>
-      <a-light type="directional" position="0 1 1" intensity="0.8"></a-light>
+      <a-light
+        type="directional"
+        position="0 1 1"
+        intensity="0.8"
+      ></a-light>
 
+      <!-- TARGET -->
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-box
-           position="0 0 0.1" 
-           scale="1.5 1.5 1.5" 
-           rotation="0 0 0">
-        </a-box>
 
-        <a-entity position="0 0.8 0.1">
-          <a-plane color="#000" height="0.3" width="1.6" opacity="0.7"></a-plane>
-          <a-text 
-            value="¿SABIAS QUE?\n¡La mantis tiene el golpe mas rapido!" 
-            color="white" 
-            align="center" 
-            font="exo2bold"
-            width="1.5" 
-            position="0 0 0.02">
-          </a-text>
-        </a-entity>
+        <!-- MODELO 3D -->
+        <a-gltf-model
+          src="#modeloMantis"
+          position="0 0 0.1"
+          scale="0.15 0.15 0.15"
+          rotation="-90 0 0"
+        ></a-gltf-model>
+
+        <!-- TEXTO -->
+        <a-text
+          value="¿SABÍAS QUE?\nLa mantis tiene el golpe más rápido"
+          color="#000"
+          align="center"
+          width="1.6"
+          position="0 0.25 0"
+        ></a-text>
+
       </a-entity>
     </a-scene>
   </body>
