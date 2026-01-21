@@ -10,7 +10,7 @@
     <a-scene 
       mindar-image="imageTargetSrc: ./mantis.mind;" 
       color-space="sRGB" 
-      renderer="colorManagement: true, physicallyCorrectLights: false, exposure: 1" 
+      renderer="colorManagement: true, physicallyCorrectLights: false, exposure: 1.2" 
       vr-mode-ui="enabled: false">
       
       <a-assets>
@@ -24,7 +24,18 @@
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model src="#modelo" position="0 0 0.1" scale="1 1 1"></a-gltf-model>
+
+        <a-entity position="0 0.6 0.1">
+          <a-plane color="#000" height="0.2" width="1.2" opacity="0.7"></a-plane>
+          <a-text 
+            value="SABIAS QUE: La Mantis tiene el golpe mas rapido del mundo!" 
+            color="white" 
+            align="center" 
+            width="1.1" 
+            position="0 0 0.01">
+          </a-text>
+        </a-entity>
       </a-entity>
     </a-scene>
   </body>
-</html>
+</html>v
