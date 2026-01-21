@@ -9,33 +9,39 @@
   <body>
     <a-scene 
       mindar-image="imageTargetSrc: ./mantis.mind;" 
-      color-space="sRGB" 
-      renderer="colorManagement: true, physicallyCorrectLights: false, exposure: 1.2" 
-      vr-mode-ui="enabled: false">
+      renderer="colorManagement: true, exposure: 1.5" 
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false">
       
       <a-assets>
-        <a-asset-item id="modelo" src="./mantis.glb"></a-asset-item>
+        <a-asset-item id="mantisModel" src="./mantis.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-light type="ambient" intensity="1"></a-light>
-      <a-light type="directional" position="0 1 1" intensity="0.5"></a-light>
+      <a-light type="ambient" intensity="1.2"></a-light>
+      <a-light type="directional" position="0 1 1" intensity="0.8"></a-light>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model src="#modelo" position="0 0 0.1" scale="1 1 1"></a-gltf-model>
+        <a-gltf-model 
+           src="#mantisModel" 
+           position="0 0 0.1" 
+           scale="1.5 1.5 1.5" 
+           rotation="0 0 0">
+        </a-gltf-model>
 
-        <a-entity position="0 0.6 0.1">
-          <a-plane color="#000" height="0.2" width="1.2" opacity="0.7"></a-plane>
+        <a-entity position="0 0.8 0.1">
+          <a-plane color="#000" height="0.3" width="1.6" opacity="0.7"></a-plane>
           <a-text 
-            value="SABIAS QUE: La Mantis tiene el golpe mas rapido del mundo!" 
+            value="¿SABIAS QUE?\n¡La mantis tiene el golpe mas rapido!" 
             color="white" 
             align="center" 
-            width="1.1" 
-            position="0 0 0.01">
+            font="exo2bold"
+            width="1.5" 
+            position="0 0 0.02">
           </a-text>
         </a-entity>
       </a-entity>
     </a-scene>
   </body>
-</html>v
+</html>
